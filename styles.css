@@ -2,9 +2,17 @@
  * Home page
  *******************************************
  */
+
+html {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+html.wf-active {
+  font-family: 'Muli';
+}
+
 body {
   margin: 0;
-  font-family: 'Muli', sans-serif;
   background: #21c08b;
   background-image: linear-gradient(#21c08b, #8f57fd);
 }
@@ -20,7 +28,6 @@ input:not([type='submit']):not([type='checkbox']) {
   border-right: 0px;
   border-top: 0px;
   color: white;
-  font-family: 'Muli', sans-serif;
   font-size: 16px;
   height: 50px;
   margin-bottom: 20px;
@@ -46,7 +53,7 @@ input[type='submit'] {
   color: white;
 }
 
-header {
+.header {
   align-items: center;
   color: white;
   display: flex;
@@ -56,7 +63,7 @@ header {
   width: 100%;
 }
 
-.logo {
+/* .logo {
   margin-left: 30px;
   width: 200px;
   height: 61px;
@@ -64,13 +71,13 @@ header {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-}
+} */
 
-.menu {
+.header__menu {
   margin-right: 30px;
 }
 
-.menu ul {
+.header__menu--list {
   display: none;
   list-style: none;
   margin: 0px 0px 0px -14px;
@@ -80,31 +87,31 @@ header {
   text-align: right;
 }
 
-.menu:hover ul,
-ul:hover {
+.header__menu:hover .header__menu--list,
+.header__menu--list:hover {
   display: block;
 }
 
-.menu li {
+.header__menu .header__menu--item {
   margin: 10px 0px;
 }
 
-.menu li a {
+.header__menu .header__menu--item a {
   color: white;
   text-decoration: none;
 }
 
-.menu li a:hover {
+.header__menu .header__menu--item a:hover {
   text-decoration: underline;
 }
 
-.menu > div {
+.header__menu .header__menu--containerImage {
   align-items: center;
   display: flex;
   cursor: pointer;
 }
 
-.menu > div > img {
+.header__menu .header__menu--containerImage img {
   margin-right: 8px;
   width: 40px;
 }
@@ -141,25 +148,25 @@ body .main .search-input {
   width: 70%;
 }
 
-footer {
+.footer {
   text-align: center;
   margin-top: 4rem;
   margin-bottom: 3rem;
 }
-footer p {
+.footer p {
   margin: 0.5rem;
   color: #22046f;
 }
-footer i {
+.footer i {
   border-bottom: 1px dashed;
 }
 
-footer a {
+.footer a {
   color: #22046f;
   font-weight: bold;
 }
 
-footer a:hover {
+.footer a:hover {
   text-decoration: underline;
 }
 

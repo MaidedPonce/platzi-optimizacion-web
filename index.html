@@ -10,10 +10,8 @@
     <link rel="preconnect" href="https://kitsu.io/" crossorigin />
     <link rel="dns-prefetch" href="https://kitsu.io/" />
     <!-- Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Muli&display=block"
-      rel="stylesheet"
-    />
+    <!--   <link href="https://fonts.googleapis.com/css?family=Muli&display=block" rel="stylesheet" />
+ -->
     <!-- Styles -->
     <link rel="stylesheet" href="/styles.css" />
     <link
@@ -27,16 +25,17 @@
     <!-- Title -->
     <title>PlatziVideo</title>
   </head>
+
   <body>
-    <header>
-      <div class="logo"></div>
-      <div class="menu">
-        <div>
-          <img src="assets/user-icon.png" alt="" />
+    <header class="header">
+      <img width="200px" height="61px" src="/assets/logo-platzi-video.png" />
+      <div class="header__menu">
+        <div class="header__menu--containerImage">
+          <img src="assets/user-icon.png" alt="Imagen de icono de usuario" />
           <p>Perfil</p>
         </div>
-        <ul>
-          <li><a href="/">Cuenta</a></li>
+        <ul class="header__menu--list">
+          <li class="header__menu--item"><a href="/">Cuenta</a></li>
         </ul>
       </div>
     </header>
@@ -46,7 +45,7 @@
       <input type="text" class="search-input" placeholder="Buscar..." />
     </section>
 
-    <footer>
+    <footer class="footer">
       <p>
         Projecto del curso de
         <a href="https://platzi.com/optimizacion-web" target="_blank"
@@ -66,5 +65,13 @@
         <a href="https://kitsu.io" target="_blank">Kitsu</a>
       </p>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script>
+      WebFont.load({
+        google: {
+          families: ['Muli'],
+        },
+      })
+    </script>
   </body>
 </html>
