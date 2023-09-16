@@ -6,7 +6,8 @@
   "scripts": {
     "start": "NODE_OPTIONS='--openssl-legacy-provider' npm run dev",
     "dev": "webpack-dev-server",
-    "build": "webpack -p",
+    "build": "NODE_OPTIONS='--openssl-legacy-provider' webpack -p",
+    "analyze-p": "NODE_OPTIONS='--openssl-legacy-provider' webpack -p --analyze",
     "serve": "serve ."
   },
   "prettier": {
@@ -25,14 +26,15 @@
     "husky": "^4.2.3",
     "hyperscript": "^2.0.2",
     "lodash": "^4.17.15",
-    "moment": "^2.24.0",
     "prettier": "1.19.1",
     "pretty-quick": "^2.0.1",
     "webpack": "^4.42.0",
+    "webpack-bundle-analyzer": "^4.9.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "date-fns": "^2.30.0",
     "serve": "^14.2.1"
   }
 }
