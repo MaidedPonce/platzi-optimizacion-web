@@ -35,7 +35,7 @@ const Carousel = ({ itemsList = [] }) => {
     })
   }, options)
   carouselItems.forEach(img => imagesObserver.observe(img))
-
+  console.log(carouselItems)
   return h('section.carousel', h('div', carouselItems))
 }
 window.addEventListener('DOMContentLoaded', async () => {
