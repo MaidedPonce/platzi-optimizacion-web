@@ -1,6 +1,7 @@
 import h from 'hyperscript'
 import { fetchPopular, fetchHighestRated, fetchTrending } from './api'
 import CarouselItem from './CarouselItem'
+import { modalListener } from './modal/index'
 
 const SectionTitle = title => h('h3.carousel-title', title)
 
@@ -35,7 +36,16 @@ const Carousel = ({ itemsList = [] }) => {
     })
   }, options)
   carouselItems.forEach(img => imagesObserver.observe(img))
-  console.log(carouselItems)
+  document.body.addEventListener('click', event => {
+    const tagName = event.target.tagName
+    if (['IMG', 'A'].includes(tagName)) {
+      modalListener(event)
+    }
+  })
+  /* const allYtLinks = document.querySelectorAll('.js-video-link')
+  allYtLinks.forEach((link) => {
+    link.addEventListener('click', modalListener)
+  }) */
   return h('section.carousel', h('div', carouselItems))
 }
 window.addEventListener('DOMContentLoaded', async () => {
