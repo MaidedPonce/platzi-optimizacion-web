@@ -9,7 +9,7 @@ const Controls = ({ slug, youtubeVideoId }) =>
   h(
     'div',
     h(
-      'a',
+      'a.js-video-link',
       {
         href: `https://www.youtube.com/watch?v=${youtubeVideoId}`,
         title: 'Watch trailer',
@@ -46,7 +46,7 @@ const CarouselItem = ({
 }) =>
   h(
     'div.carousel-item',
-    h('img', { src: imageUrl, alt: '' }),
+    h('img .image', { 'data-src': imageUrl, alt: '' }),
     h(
       'div',
       Controls({ slug, youtubeVideoId }),

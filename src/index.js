@@ -1,6 +1,7 @@
 import h from 'hyperscript'
 import { fetchPopular, fetchHighestRated, fetchTrending } from './api'
 import CarouselItem from './CarouselItem'
+import { modalListener } from './modal'
 
 const SectionTitle = title => h('h3.carousel-title', title)
 
@@ -18,24 +19,6 @@ const Carousel = ({ itemsList = [] }) => {
         startDate,
       })
   )
-
-  const options = {
-    rootMargin: '10px',
-    threshold: 0.2,
-  }
-  const imagesObserver = new IntersectionObserver(elements => {
-    elements.forEach(entry => {
-      const image = entry.target.querySelector('img')
-      if (entry.isIntersecting) {
-        image.style.display = 'block'
-        imagesObserver.unobserve(image)
-      } else {
-        image.style.display = 'none'
-      }
-    })
-  }, options)
-  carouselItems.forEach(img => imagesObserver.observe(img))
-  console.log(carouselItems)
   return h('section.carousel', h('div', carouselItems))
 }
 window.addEventListener('DOMContentLoaded', async () => {
@@ -71,4 +54,28 @@ window.addEventListener('DOMContentLoaded', async () => {
         itemsList: popular,
       })
     )
-})
+
+  const carouselItems = document.querySelectorAll('.carousel-item .image')
+  const imagesObserver = new IntersectionObserver(elements => {
+    elements.forEach(entry => {
+      const image = entry.target.querySelector('img')
+      if (entry.isIntersecting) {
+        let imagen = entry.target
+        imagen.src = imagen.dataset.src
+      } else {
+        image.src = image.dataset.src
+      }
+    })
+  })
+  carouselItems.forEach(img => imagesObserver.observe(img))
+  document.body.addEventListener('click', event => {
+    const tagName = event.target.tagName
+    if (['IMG', 'A'].includes(tagName)) {
+      modalListener(event)
+    }
+  })
+  /*   const allYoutubeLinks = document.querySelectorAll('.js-video-link')
+    allYoutubeLinks.forEach((link) => {
+      link.addEventListener('click', modalListener)
+    }) */
+})(document, window)
