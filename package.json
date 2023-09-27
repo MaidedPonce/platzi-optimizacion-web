@@ -4,11 +4,11 @@
   "description": "Proyecto del curso de Optimizacion Web de Platzi",
   "author": "@jonalvarezz",
   "scripts": {
-    "start": "NODE_OPTIONS='--openssl-legacy-provider' npm run dev",
-    "dev": "NODE_OPTIONS='--openssl-legacy-provider' webpack-dev-server",
-    "build": "NODE_OPTIONS='--openssl-legacy-provider' webpack -p",
-    "analyze-p": "NODE_OPTIONS='--openssl-legacy-provider' webpack -p --analyze",
-    "serve": "serve ."
+    "start": "npm run serve",
+    "dev": "webpack-dev-server",
+    "build": "webpack",
+    "serve": "serve .",
+    "analyze-p": "webpack --analyze"
   },
   "prettier": {
     "trailingComma": "es5",
@@ -23,20 +23,22 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "css-loader": "^6.8.1",
+    "date-fns": "^2.30.0",
     "husky": "^4.2.3",
     "hyperscript": "^2.0.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
+    "modal-video": "^2.4.8",
     "prettier": "1.19.1",
     "pretty-quick": "^2.0.1",
+    "serve": "^14.2.1",
     "style-loader": "^3.3.3",
-    "webpack": "^4.42.0",
+    "webpack": "^5.88.2",
     "webpack-bundle-analyzer": "^4.9.1",
-    "webpack-cli": "^3.3.11",
+    "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "date-fns": "^2.30.0",
-    "modal-video": "^2.4.8",
-    "serve": "^14.2.1"
+    "isomorphic-unfetch": "^3.1.0"
   }
 }

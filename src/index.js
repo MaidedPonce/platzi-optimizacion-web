@@ -63,7 +63,9 @@ window.addEventListener('DOMContentLoaded', async () => {
         let imagen = entry.target
         imagen.src = imagen.dataset.src
       } else {
-        image.src = image.dataset.src
+        if (image && image.dataset) {
+          image.src = image.dataset.src
+        }
       }
     })
   })
@@ -78,4 +80,4 @@ window.addEventListener('DOMContentLoaded', async () => {
     allYoutubeLinks.forEach((link) => {
       link.addEventListener('click', modalListener)
     }) */
-})(document, window)
+})
