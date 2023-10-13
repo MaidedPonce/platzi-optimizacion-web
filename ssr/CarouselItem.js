@@ -1,6 +1,6 @@
-import h from 'hyperscript'
-import formatDistance from 'date-fns/formatDistance'
-import parseISO from 'date-fns/parseISO'
+const h = require('hyperscript')
+const formatDistance = require('date-fns/formatDistance')
+const parseISO = require('date-fns/parseISO')
 
 const relativeDate = dateStr =>
   formatDistance(parseISO(dateStr, 'YYYY-MM-DD'), new Date())
@@ -9,15 +9,15 @@ const Controls = ({ slug, youtubeVideoId }) =>
   h(
     'div',
     h(
-      'a.js-video-link',
+      'a.js-modal',
       {
         href: `https://www.youtube.com/watch?v=${youtubeVideoId}`,
-        'data-videoId': youtubeVideoId,
+        'data-videoid': youtubeVideoId,
         title: 'Watch trailer',
         target: '_blank',
         rel: 'noreferrer',
       },
-      h('img', {
+      h('img.carousel-item__details--img', {
         src: 'assets/play-icon.png',
         alt: 'Play',
       })
@@ -30,7 +30,7 @@ const Controls = ({ slug, youtubeVideoId }) =>
         target: '_blank',
         rel: 'noreferrer',
       },
-      h('img', {
+      h('img.carousel-item__details--img', {
         src: 'assets/plus-icon.png',
         alt: 'More info',
       })
@@ -47,14 +47,21 @@ const CarouselItem = ({
 }) =>
   h(
     'div.carousel-item',
-    h('img .image', { 'data-src': imageUrl, alt: '' }),
+    h('img.carousel-item__img', {
+      alt: title,
+      'data-src': imageUrl,
+      'data-background-image': '/assets/carousel-item-placeholder.png',
+    }),
     h(
-      'div',
+      'div.carousel-item__details',
       Controls({ slug, youtubeVideoId }),
-      h('p', title),
-      h('p', subtitle),
-      h('p', `Released: ${relativeDate(startDate)}`)
+      h('p.carousel-item__details--title', title),
+      h('p.carousel-item__details--subtitle', subtitle),
+      h(
+        'p.carousel-item__details--date',
+        `Released: ${relativeDate(startDate)}`
+      )
     )
   )
 
-export default CarouselItem
+module.exports = CarouselItem
